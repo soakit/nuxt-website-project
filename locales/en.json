@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "/": "Home",
+    "/shopping": "Hardware",
+    "/article": "Filecoin",
+    "/news": "Blog",
+    "/aboutus": "About",
+    "logout": "Logout",
+    "login": "Login"
+  }
+}

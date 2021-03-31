@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "/": "首页",
+    "/shopping": "存储服务器",
+    "/article": "IPFS",
+    "/news": "新闻资讯",
+    "/aboutus": "关于我们",
+    "logout": "注销",
+    "login": "登录"
+  }
+}

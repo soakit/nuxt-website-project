@@ -10,6 +10,10 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  router: {
+    middleware: ['i18n'],
+  },
+
   styleResources: {
     less: ['@/assets/less/base/*.less'],
   },
@@ -24,6 +28,7 @@ export default {
     '@/plugins/request.js',
     '@/plugins/api.js',
     '@/plugins/vue-global.js',
+    '@/plugins/i18n.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,6 +49,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'cookie-universal-nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
