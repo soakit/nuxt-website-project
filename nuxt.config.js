@@ -10,11 +10,21 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  styleResources: {
+    less: ['@/assets/less/base/*.less'],
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['ant-design-vue/dist/antd.css'],
+  css: ['@/assets/less/all.less', 'ant-design-vue/dist/antd.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/antd-ui'],
+  plugins: [
+    '@/plugins/antd-ui',
+    '@/plugins/axios.js',
+    '@/plugins/request.js',
+    '@/plugins/api.js',
+    '@/plugins/vue-global.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -25,6 +35,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
