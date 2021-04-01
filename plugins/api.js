@@ -8,5 +8,8 @@ export default ({ app: { $request } }, inject) => {
     getArticleList(params) {
       return $request.get('/v2/article/list', params)
     },
+    login(params) {
+      return $request.post('/user/login-by-sms', params)
+    },
   })
 }

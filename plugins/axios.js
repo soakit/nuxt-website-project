@@ -32,17 +32,17 @@ if (environment.production) {
 export { apiConfig }
 
 export default function ({ app }) {
-  const { $axios, $cookies } = app
+  const { $axios, store } = app
   $axios.defaults.timeout = 30000
   $axios.interceptors.request.use((config) => {
     // console.log('config', config)
     const { url } = config
-    if (url.startsWith('/user/')) {
+    if (url.startsWith('/user/') && url !== '/user/login-by-sms') {
       config.baseURL = apiConfig.miningApiUrl
     } else {
       config.baseURL = apiConfig.mApiUrl
     }
-    config.headers['x-ipfsmain-token'] = $cookies.get('token') || ''
+    config.headers['x-ipfsmain-token'] = store.state.token
     return config
   })
   $axios.interceptors.response.use((response) => {

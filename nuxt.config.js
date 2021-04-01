@@ -29,6 +29,7 @@ export default {
     '@/plugins/api.js',
     '@/plugins/vue-global.js',
     '@/plugins/i18n.js',
+    '@/plugins/nuxt-client-init.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
