@@ -3,7 +3,11 @@
     文章
     <div>total: {{ articleObj.total }}</div>
     <ul>
-      <li v-for="item in articleObj.list" :key="item.id">{{ item.title }}</li>
+      <li v-for="item in articleObj.list" :key="item.id">
+        <router-link :to="{ path: `/article/${item.id}` }">{{
+          item.title
+        }}</router-link>
+      </li>
     </ul>
   </div>
 </template>

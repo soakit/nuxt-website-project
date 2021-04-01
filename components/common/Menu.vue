@@ -27,7 +27,7 @@
             $t('menu.logout')
           }}</span>
         </template>
-        <div class="nav-item">个人中心</div>
+        <router-link to="/user/profit" class="nav-item">个人中心</router-link>
       </a-popover>
     </template>
     <div class="nav-item" style="width: 40px" @click="switchLocale">
