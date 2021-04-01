@@ -23,7 +23,7 @@
         <p>抵押(FIL)</p>
         <p>{{ tData.pledge }}</p>
         <p>垫付抵押(FIL)</p>
-        <p>{{ tData.advanceMortgage || 0 }}</p>
+        <p>{{ tData.advanceMortgage }}</p>
         <p>用户抵押(FIL)</p>
         <p>{{ tData.pledge_reply }}</p>
       </div>
@@ -34,12 +34,21 @@
 export default {
   async asyncData({ app, store }) {
     let profitData = {}
-    if (store.state.profitData) {
-      profitData = store.state.profitData
-    } else {
-      profitData = await app.$api.getProfit()
-      store.commit('GET_PROFIT', profitData)
+    // 如果不需要实时的数据，就放开注释，使用缓存的数据
+    // if (store.state.profitData) {
+    //   profitData = store.state.profitData
+    // } else {
+    profitData = await app.$api.getProfit()
+
+    profitData.advanceMortgage = profitData.pledge - profitData.pledge_reply
+    const getFil = (value) =>
+      parseFloat(Number(Number(value) / 1000000000000000000).toFixed(4))
+    for (const i in profitData) {
+      profitData[i] = getFil(profitData[i])
     }
+
+    store.commit('GET_PROFIT', profitData)
+    // }
     return {
       tData: profitData,
     }
