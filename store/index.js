@@ -3,6 +3,7 @@ export const state = () => ({
   menuList: [],
   articleObj: {},
   newsObj: {},
+  profitData: null,
 })
 
 export const mutations = {
@@ -17,6 +18,9 @@ export const mutations = {
   },
   SET_TOKEN(state, payload = '') {
     state.token = payload
+  },
+  GET_PROFIT(state, payload) {
+    state.profitData = payload
   },
 }
 

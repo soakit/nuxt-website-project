@@ -1,5 +1,14 @@
+import { message } from 'ant-design-vue'
+
+function salert(value, type = 'info') {
+  message.config({
+    top: '10%',
+  })
+  message[type](value)
+}
+
 export default ({ app }, inject) => {
-  const { $axios } = app
+  const { route, req, redirect, $axios } = app.context
   const requestList = {}
   const methods = ['get', 'post', 'put', 'delete']
   methods.forEach((method) => {
@@ -12,8 +21,19 @@ export default ({ app }, inject) => {
           [dataKey]: data,
         })
           .then((res) => {
-            if (res.message === 'success') {
+            if (res.status === 200) {
               resolve(res.data || res.params)
+            } else if (res.status === 401) {
+              if (process.client) {
+                salert(res.message, 'error')
+                setTimeout(() => {
+                  const path = route.path
+                  redirect('/login?redirectUrl=' + encodeURIComponent(path))
+                }, 1500)
+              } else {
+                const path = req.originalUrl
+                redirect('/login?redirectUrl=' + encodeURIComponent(path))
+              }
             } else {
               resolve({
                 data: { length: 0 },

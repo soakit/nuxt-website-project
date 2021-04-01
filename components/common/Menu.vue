@@ -58,6 +58,7 @@ export default {
       this.SET_TOKEN('')
       localStorage.setItem('token', '')
       this.$cookies.set('token', '')
+      location.reload()
     },
   },
 }
