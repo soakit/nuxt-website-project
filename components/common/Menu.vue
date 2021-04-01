@@ -12,9 +12,15 @@
           {{ $t('menu.' + item.url) }}
         </router-link>
       </div>
-      <router-link v-if="!token" to="/login" class="nav-item">{{
-        $t('menu.login')
-      }}</router-link>
+      <router-link
+        v-if="!token"
+        :to="{
+          path: '/login',
+          query: { redirectUrl: $route.fullPath },
+        }"
+        class="nav-item"
+        >{{ $t('menu.login') }}</router-link
+      >
       <a-popover v-else trigger="hover">
         <template slot="content">
           <span class="btn-logout" @click="onLogout">{{

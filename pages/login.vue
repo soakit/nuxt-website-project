@@ -95,9 +95,13 @@ export default {
             this.$store.commit('SET_TOKEN', token)
             this.$cookies.set('token', token)
             localStorage.setItem('token', token)
-
-            // FIXME: 优化为重定向地址
-            this.$router.push({ path: '/user/profit' })
+            // 重定向处理
+            const { redirectUrl } = this.$route.query
+            if (redirectUrl) {
+              this.$router.push({ path: decodeURIComponent(redirectUrl) })
+            } else {
+              this.$router.push({ path: '/' })
+            }
           })
         }
       })
