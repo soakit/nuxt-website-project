@@ -35,6 +35,22 @@ yarn add less-loader@7.3.0 less
 yarn add cookie-universal-nuxt vue-i18n
 ```
 
+## 4.登录与鉴权
+
+### token
+
+- 客户端从localStorage中取
+
+- 服务端从cookie中取，登录时将token放入cookie
+
+### 鉴权中间件userAuth
+
+- 将需要鉴权的增加`middleware: 'userAuth'`
+
+## 5.ant-design按需引入
+
+参考链接：https://www.jianshu.com/p/ca335eaa50cb
+
 ## 命令
 
 ```bash
