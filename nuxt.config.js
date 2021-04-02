@@ -67,6 +67,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    analyze: process.env.NUXT_ENV === 'analyze',
     transpile: [/ant-design-vue/],
     extend(config) {
       config.resolve.alias['@ant-design/icons/lib/dist$'] = path.resolve(

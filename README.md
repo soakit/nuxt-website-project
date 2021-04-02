@@ -51,6 +51,10 @@ yarn add cookie-universal-nuxt vue-i18n
 
 参考链接：https://www.jianshu.com/p/ca335eaa50cb
 
+## 6.加入打包的包体分析
+
+参考链接：https://zh.nuxtjs.org/docs/2.x/configuration-glossary/configuration-build/#analyze
+
 ## 命令
 
 ```bash
