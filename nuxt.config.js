@@ -1,3 +1,5 @@
+import path from 'path'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -19,7 +21,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/less/all.less', 'ant-design-vue/dist/antd.css'],
+  css: ['@/assets/less/all.less'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -64,5 +66,14 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    transpile: [/ant-design-vue/],
+    extend(config) {
+      config.resolve.alias['@ant-design/icons/lib/dist$'] = path.resolve(
+        __dirname,
+        './assets/icon/antd-icon.js'
+      ) // 引入需要的icon
+    },
+    extractCSS: true,
+  },
 }

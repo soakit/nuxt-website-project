@@ -58,6 +58,10 @@
 </template>
 
 <script>
+import 'ant-design-vue/lib/form/style/index.css'
+import 'ant-design-vue/lib/input/style/index.css'
+import 'ant-design-vue/lib/button/style/index.css'
+
 function hasErrors(fieldsError) {
   return Object.keys(fieldsError).some((field) => fieldsError[field])
 }

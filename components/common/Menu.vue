@@ -38,6 +38,8 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
+import 'ant-design-vue/lib/popover/style/index.css'
+
 export default {
   computed: {
     ...mapState(['menuList', 'token']),
